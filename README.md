@@ -11,7 +11,7 @@ module "app" {
   name                     = "myapp"
   description              = "My Amplify APP"
   repository               = "https://gitlab.com/group/blabla" # GitLab or Github repo URL
-  access_token             = var.access_token # GitLab or GitHub personal token (use sensetive value in Terraform Cloud)
+  access_token             = var.access_token # GitLab or GitHub personal token (use sensitive value in Terraform Cloud)
   enable_branch_auto_build = true
   app_environment = {
     NAME = "test" # global envs
@@ -28,7 +28,7 @@ module "app" {
       domain_name = "otherdomain.com"
       sub_domain = [
         {
-          prefix      = "dev"
+          prefix      = "dev" # dev.otherdomain.com
           branch_name = "dev"
         }
       ]
@@ -37,11 +37,11 @@ module "app" {
       domain_name = "example.com"
       sub_domain = [
         {
-          prefix      = ""
+          prefix      = ""     # example.com
           branch_name = "main"
         },
         {
-          prefix      = "www"
+          prefix      = "www"  # www.example.com
           branch_name = "main"
         }
       ]
@@ -55,7 +55,7 @@ module "app" {
       basic_auth_username = "user"
       basic_auth_password = "secret"
       app_environment = {
-        REACT_APP_FOO = "foo"
+        REACT_APP_FOO = "foo"   # branch envs
         REACT_APP_BAR = "bar"
       }
     },
