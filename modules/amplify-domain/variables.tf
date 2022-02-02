@@ -13,7 +13,3 @@ variable "sub_domain" {
 variable "wait_for_verification" {
   type = bool
 }
-
-variable "use_route53" {
-  type = bool
-}

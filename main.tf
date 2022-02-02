@@ -58,6 +58,5 @@ module "domain_management" {
   domain_name = each.value.domain_name
   sub_domain  = each.value.sub_domain
 
-  use_route53           = lookup(each.value, "use_route53", false)
   wait_for_verification = lookup(each.value, "wait_for_verification", false)
 }
