@@ -59,4 +59,6 @@ module "domain_management" {
   sub_domain  = each.value.sub_domain
 
   wait_for_verification = lookup(each.value, "wait_for_verification", false)
+
+  depends_on = [module.branch]
 }
