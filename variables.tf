@@ -21,6 +21,12 @@ variable "access_token" {
   description = "The personal access token for a third-party source control system for an Amplify app."
 }
 
+variable "oauth_token" {
+  type        = string
+  default     = null
+  description = "The OAuth token for a third-party source control system for an Amplify app."
+}
+
 variable "enable_branch_auto_build" {
   type        = bool
   default     = true

@@ -12,6 +12,7 @@ module "app" {
   description              = "My Amplify APP"
   repository               = "https://gitlab.com/group/blabla" # GitLab or Github repo URL
   access_token             = var.access_token # GitLab or GitHub personal token (use sensitive value in Terraform Cloud)
+  
   enable_branch_auto_build = true
   app_environment = {
     NAME = "test" # global envs
@@ -110,6 +111,7 @@ Terraform >= 1.0.0
 | <a name="input_enable_basic_auth"></a> [enable\_basic\_auth](#input\_enable\_basic\_auth) | Enables basic authorization for an Amplify app. | `bool` | `false` | no |
 | <a name="input_enable_branch_auto_build"></a> [enable\_branch\_auto\_build](#input\_enable\_branch\_auto\_build) | Enables auto-building of branches for the Amplify App. | `bool` | `true` | no |
 | <a name="input_name"></a> [name](#input\_name) | The name for an Amplify app. | `string` | n/a | yes |
+| <a name="input_oauth_token"></a> [oauth\_token](#input\_oauth\_token) | The OAuth token for a third-party source control system for an Amplify app. | `string` | `null` | no |
 | <a name="input_repository"></a> [repository](#input\_repository) | The repository for an Amplify app. | `string` | `""` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | A mapping of tags to assign to all resources. | `map(any)` | `{}` | no |
 

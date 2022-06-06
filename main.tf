@@ -7,6 +7,7 @@ resource "aws_amplify_app" "this" {
   description              = var.description
   repository               = var.repository
   access_token             = var.access_token
+  oauth_token              = var.oauth_token
   enable_branch_auto_build = var.enable_branch_auto_build
   build_spec               = var.build_spec
   environment_variables    = var.app_environment
