@@ -72,6 +72,17 @@ module "app" {
 }
 ```
 
+## Bitbucket Requirements
+To use Bitbucket as VCS it is necessary to use OAuth for authentication. https://support.atlassian.com/bitbucket-cloud/docs/use-oauth-on-bitbucket-cloud/
+```
+...
+
+  repository               = "https://bitbucket.org/foo/bar" # Bitbucket repo URL
+  oauth_token              = var.oauth_token # Bitbucket OAuth token (use sensitive value in Terraform Cloud)
+
+...
+```
+
 ## Requirements
 
 Terraform >= 1.0.0
