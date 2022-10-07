@@ -86,3 +86,9 @@ variable "basic_auth_password" {
   default     = ""
   description = "The basic auth password for an Amplify app."
 }
+
+variable "service_role" {
+  type        = bool
+  default     = false
+  description = "Creates IAM Service Role for an Amplify app."
+}

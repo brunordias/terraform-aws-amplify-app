@@ -33,3 +33,15 @@ variable "basic_auth_password" {
 variable "domain_management" {
   type = any
 }
+
+variable "framework" {
+  type = string
+}
+
+variable "stage" {
+  type = string
+}
+
+variable "enable_auto_build" {
+  type = any
+}

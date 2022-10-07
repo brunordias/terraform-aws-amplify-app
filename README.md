@@ -85,13 +85,16 @@ To use Bitbucket as VCS it is necessary to use OAuth for authentication. https:/
 
 ## Requirements
 
-Terraform >= 1.0.0
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.0.0 |
+| <a name="requirement_aws"></a> [aws](#requirement\_aws) | >= 3.74.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | n/a |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.33.0 |
 
 ## Modules
 
@@ -105,6 +108,8 @@ Terraform >= 1.0.0
 | Name | Type |
 |------|------|
 | [aws_amplify_app.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/amplify_app) | resource |
+| [aws_iam_role.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role) | resource |
+| [aws_iam_role_policy_attachment.this](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role_policy_attachment) | resource |
 
 ## Inputs
 
@@ -124,6 +129,7 @@ Terraform >= 1.0.0
 | <a name="input_name"></a> [name](#input\_name) | The name for an Amplify app. | `string` | n/a | yes |
 | <a name="input_oauth_token"></a> [oauth\_token](#input\_oauth\_token) | The OAuth token for a third-party source control system for an Amplify app. | `string` | `null` | no |
 | <a name="input_repository"></a> [repository](#input\_repository) | The repository for an Amplify app. | `string` | `""` | no |
+| <a name="input_service_role"></a> [service\_role](#input\_service\_role) | Creates IAM Service Role for an Amplify app. | `bool` | `false` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | A mapping of tags to assign to all resources. | `map(any)` | `{}` | no |
 
 ## Outputs
