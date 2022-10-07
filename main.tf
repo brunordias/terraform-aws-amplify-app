@@ -11,6 +11,7 @@ resource "aws_amplify_app" "this" {
   enable_branch_auto_build = var.enable_branch_auto_build
   build_spec               = var.build_spec
   environment_variables    = var.app_environment
+  iam_service_role_arn     = var.service_role == true ? aws_iam_role.this.0.id : null
   tags                     = var.tags
 
   enable_basic_auth      = var.enable_basic_auth
@@ -35,8 +36,11 @@ module "branch" {
 
   for_each = var.branches_config
 
-  branch_name  = each.value.branch_name
-  display_name = lookup(each.value, "display_name", null)
+  branch_name       = each.value.branch_name
+  display_name      = lookup(each.value, "display_name", null)
+  framework         = lookup(each.value, "framework", null)
+  stage             = lookup(each.value, "stage", null)
+  enable_auto_build = lookup(each.value, "enable_auto_build", null)
 
   app_environment = lookup(each.value, "app_environment", {})
 
@@ -62,4 +66,33 @@ module "domain_management" {
   wait_for_verification = lookup(each.value, "wait_for_verification", false)
 
   depends_on = [module.branch]
+}
+
+## Amplify Service Role
+resource "aws_iam_role" "this" {
+  count = var.service_role == true ? 1 : 0
+
+  name = "${var.name}-amplify-backend-role"
+
+  assume_role_policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "amplify.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+EOF
+}
+
+resource "aws_iam_role_policy_attachment" "this" {
+  count = var.service_role == true ? 1 : 0
+
+  role       = aws_iam_role.this.0.name
+  policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess-Amplify"
 }
