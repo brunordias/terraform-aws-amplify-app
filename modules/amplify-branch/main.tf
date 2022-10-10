@@ -8,6 +8,7 @@ resource "aws_amplify_branch" "this" {
   display_name      = var.display_name
   framework         = var.framework
   enable_auto_build = var.enable_auto_build
+  stage             = var.stage
 
   environment_variables = var.app_environment
 
