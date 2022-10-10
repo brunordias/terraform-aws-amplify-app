@@ -11,7 +11,7 @@ resource "aws_amplify_app" "this" {
   enable_branch_auto_build = var.enable_branch_auto_build
   build_spec               = var.build_spec
   environment_variables    = var.app_environment
-  iam_service_role_arn     = var.service_role == true ? aws_iam_role.this.0.id : null
+  iam_service_role_arn     = var.service_role == true ? aws_iam_role.this.0.arn : null
   tags                     = var.tags
 
   enable_basic_auth      = var.enable_basic_auth
