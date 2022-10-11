@@ -94,7 +94,7 @@ To use Bitbucket as VCS it is necessary to use OAuth for authentication. https:/
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws"></a> [aws](#provider\_aws) | 4.33.0 |
+| <a name="provider_aws"></a> [aws](#provider\_aws) | >= 3.74.0 |
 
 ## Modules
 
@@ -128,6 +128,7 @@ To use Bitbucket as VCS it is necessary to use OAuth for authentication. https:/
 | <a name="input_enable_branch_auto_build"></a> [enable\_branch\_auto\_build](#input\_enable\_branch\_auto\_build) | Enables auto-building of branches for the Amplify App. | `bool` | `true` | no |
 | <a name="input_name"></a> [name](#input\_name) | The name for an Amplify app. | `string` | n/a | yes |
 | <a name="input_oauth_token"></a> [oauth\_token](#input\_oauth\_token) | The OAuth token for a third-party source control system for an Amplify app. | `string` | `null` | no |
+| <a name="input_platform"></a> [platform](#input\_platform) | Platform or framework for an Amplify app. Valid values: WEB or WEB\_DYNAMIC | `string` | `"WEB"` | no |
 | <a name="input_repository"></a> [repository](#input\_repository) | The repository for an Amplify app. | `string` | `""` | no |
 | <a name="input_service_role"></a> [service\_role](#input\_service\_role) | Creates IAM Service Role for an Amplify app. | `bool` | `false` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | A mapping of tags to assign to all resources. | `map(any)` | `{}` | no |

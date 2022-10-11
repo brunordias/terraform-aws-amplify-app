@@ -92,3 +92,9 @@ variable "service_role" {
   default     = false
   description = "Creates IAM Service Role for an Amplify app."
 }
+
+variable "platform" {
+  type        = string
+  default     = "WEB"
+  description = "Platform or framework for an Amplify app. Valid values: WEB or WEB_DYNAMIC"
+}
